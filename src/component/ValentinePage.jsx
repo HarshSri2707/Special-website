@@ -90,21 +90,21 @@ export default function ValentineQuest() {
     }
   };
 
-  const content = {
+const content = {
     smile: {
-      q2: "Tumhari smile kiski yaad dilati hai?",
-      opts: ["Sardiyon ki Dhoop ☀️", "Pehli Baarish 🌧️", "Sukoon... ❤️"],
-      line: "Kehte hain muskurahat sabke paas hoti hai, par tumhari jaisi smile poori kaayanat mein kisi ke paas nahi. Bas yahi hamesha barkarar rakhna."
+      q2: "Waise, tumhe apni ye pyari si smile kiski yaad dilati hai? 👀",
+      opts: ["Sardiyon ki Dhoop ☀️", "Pehli Baarish 🌧️", "Dher Saara Sukoon... ❤️"],
+      line: "Duniya mein 8 billion muskurahatein hain, par pata nahi kyun mujhe sirf tumhari hi 'Sukoon' deti hai. Jab tum hasti ho na, toh lagta hai jaise waqt wahin ruk gaya ho. Bas ye smile kabhi khone mat dena."
     },
     nature: {
-      q2: "Hamara saath kaisa lagta hai?",
-      opts: ["Behti Nadi jaisa 🌊", "Khula Aasman 🌌", "Ek Pyaara Khwab ✨"],
-      line: "Jaise phoolon ke bina bahaar nahi hoti, waise hi tumhare bina meri zindagi mein koi raunak nahi. Tum mera sabse khoobsurat hissa ho."
+      q2: "Sach batana, hamara saath tumhe kaisa feel karata hai? 👫",
+      opts: ["Ekdum Behti Nadi jaisa 🌊", "Khula Aasman 🌌", "Ek Khoobsurat Khwab ✨"],
+      line: "Log kehte hain perfect jodiyaan asmano mein banti hain, par mujhe lagta hai hamari dosti aur hamara sath humne khud mehnat se kamaya hai. Tumhare bina har jagah bheed hai, aur tumhare sath har jagah ghar jaisa sukoon."
     },
     vibe: {
-      q2: "Hamari baatein kaisi hoti hain?",
+      q2: "Hamari baatein aur ye 'Vibe' tumhe kaisi lagti hai? ⚡",
       opts: ["Non-stop Pagalpan 🤪", "Deep & Emotional 🥺", "Soul Connection ✨"],
-      line: "Log milte hain, baatein karte hain... par tumse jo connection hai, wo shabdon mein bayaan karna namumkin hai. Tum meri soul-mate ho."
+      line: "Connection toh logon ka wifi se bhi ho jata hai, par tumse jo 'Soul connection' hai na, wo shayad pichle janam ka udhaar hai. Tumhe dekh kar lagta hai jaise main khud se mil raha hoon. You are my missing piece."
     }
   };
 
