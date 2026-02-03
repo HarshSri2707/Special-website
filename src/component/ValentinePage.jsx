@@ -171,12 +171,12 @@ export default function ValentineQuest() {
             className="z-20 bg-white/15 backdrop-blur-3xl p-7 sm:p-8 md:p-10 rounded-3xl sm:rounded-[2.5rem] md:rounded-[3rem] text-center border-4 border-rose-500 shadow-3xl max-w-[95vw] sm:max-w-sm md:max-w-md w-full"
           >
             <span className="text-6xl sm:text-7xl md:text-8xl mb-4 sm:mb-5 block animate-bounce">😜</span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 sm:mb-5 uppercase">Gotcha!</h2>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4 sm:mb-5 uppercase">Bohot hoshiyar ho rhe ho😁</h2>
             <p className="text-rose-100 text-lg sm:text-xl mb-7 sm:mb-8 md:mb-9 font-medium">Bohot koshish kar li No dabane ki...</p>
             <button onClick={() => { setStep("ask"); setNoAttempts(0); setNoPos({x:0, y:0}); }}
               className="w-full py-3.5 sm:py-4 bg-white text-rose-900 font-black rounded-full hover:scale-105 transition-all text-base sm:text-lg uppercase tracking-widest shadow-xl"
             >
-              ← Chal Ab YES Kar
+              ← Chalo Ab YES Karo
             </button>
           </motion.div>
         )}
