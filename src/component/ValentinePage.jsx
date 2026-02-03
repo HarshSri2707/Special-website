@@ -92,19 +92,22 @@ export default function ValentineQuest() {
 
 const content = {
     smile: {
-      q2: "Waise, tumhe apni ye pyari si smile kiski yaad dilati hai? 👀",
-      opts: ["Sardiyon ki Dhoop ☀️", "Pehli Baarish 🌧️", "Dher Saara Sukoon... ❤️"],
-      line: "Duniya mein 8 billion muskurahatein hain, par pata nahi kyun mujhe sirf tumhari hi 'Sukoon' deti hai. Jab tum hasti ho na, toh lagta hai jaise waqt wahin ruk gaya ho. Bas ye smile kabhi khone mat dena."
+      // Option 1: Focus on Peace & Comfort (Ghar Feeling)
+      q2: "Jab hum saath hote hain, toh tumhare dil mein sabse pehle kya aata hai? ❤️",
+      opts: ["Ghar jaisa sukoon 🏠", "Ek Pyari si Raunak ✨", "Waqt tham jane ka ehsas ⏳"],
+      line: "Duniya mein har koi bhag raha hai, par tumhare sath reh kar lagta hai jaise main ruk sakta hoon. Tum meri wo jagah ho jahan mujhe kuch banne ki zaroorat nahi padti, main bas 'main' reh sakta hoon. You are my safe place."
     },
     nature: {
-      q2: "Sach batana, hamara saath tumhe kaisa feel karata hai? 👫",
-      opts: ["Ekdum Behti Nadi jaisa 🌊", "Khula Aasman 🌌", "Ek Khoobsurat Khwab ✨"],
-      line: "Log kehte hain perfect jodiyaan asmano mein banti hain, par mujhe lagta hai hamari dosti aur hamara sath humne khud mehnat se kamaya hai. Tumhare bina har jagah bheed hai, aur tumhare sath har jagah ghar jaisa sukoon."
+      // Option 2: Focus on Destiny (Soul Connection)
+      q2: "Tumhe kabhi lagta hai ki hamara milna sirf ek ittefaq tha ya kuch aur? ✨",
+      opts: ["Likha hua naseeb ✍️", "Ek pyara ittefaq 🌸", "Pichle janam ka vaada 🤝"],
+      line: "Pata nahi naseeb kya hai, par agar tumse milna ittefaq bhi tha, toh wo meri zindagi ka sabse khoobsurat ittefaq hai. Tumse baat karke hamesha aisa lagta hai jaise hum sadiyon se ek doosre ko jaante hon."
     },
     vibe: {
-      q2: "Hamari baatein aur ye 'Vibe' tumhe kaisi lagti hai? ⚡",
-      opts: ["Non-stop Pagalpan 🤪", "Deep & Emotional 🥺", "Soul Connection ✨"],
-      line: "Connection toh logon ka wifi se bhi ho jata hai, par tumse jo 'Soul connection' hai na, wo shayad pichle janam ka udhaar hai. Tumhe dekh kar lagta hai jaise main khud se mil raha hoon. You are my missing piece."
+      // Option 3: Focus on Deep Understanding (Safe Space)
+      q2: "Mere sath bitaya hua wo konsa lamha hai jo tumhe sabse zyada yaad rehta hai? 🥺",
+      opts: ["Hamari lambi baatein 📞", "Wo pagalpan wali hasi 😂", "Jab hum khamosh hote hain 🤫"],
+      line: "Zindagi mein bohot log milenge, par koi aisa milna jo tumhari khamoshi bhi padh le, bohot mushkil hai. Mere liye wo 'koi' sirf tum ho. Meri har kahani tumse shuru hokar tum par hi khatam hoti hai."
     }
   };
 
@@ -119,9 +122,9 @@ const content = {
           >
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-5 sm:mb-6 tracking-tight drop-shadow-md">Choose Your Vibe! ✨</h1>
             <div className="flex flex-col gap-3 sm:gap-3.5 md:gap-4">
-              <button onClick={() => { setPath("smile"); setStep("quiz2"); }} className="py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-rose-500/40 to-pink-500/40 border border-white/20 text-white rounded-2xl sm:rounded-2xl md:rounded-3xl hover:scale-105 active:scale-95 transition-all text-base sm:text-lg font-bold shadow-lg shadow-black/20">Tumhari Smile 😊</button>
-              <button onClick={() => { setPath("nature"); setStep("quiz2"); }} className="py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-purple-500/40 to-indigo-500/40 border border-white/20 text-white rounded-2xl sm:rounded-2xl md:rounded-3xl hover:scale-105 active:scale-95 transition-all text-base sm:text-lg font-bold shadow-lg shadow-black/20">Hamara Saath 👫</button>
-              <button onClick={() => { setPath("vibe"); setStep("quiz2"); }} className="py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-blue-500/40 to-cyan-500/40 border border-white/20 text-white rounded-2xl sm:rounded-2xl md:rounded-3xl hover:scale-105 active:scale-95 transition-all text-base sm:text-lg font-bold shadow-lg shadow-black/20">Hamara Connection ⚡</button>
+              <button onClick={() => { setPath("smile"); setStep("quiz2"); }} className="py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-rose-500/40 to-pink-500/40 border border-white/20 text-white rounded-2xl sm:rounded-2xl md:rounded-3xl hover:scale-105 active:scale-95 transition-all text-base sm:text-lg font-bold shadow-lg shadow-black/20">Sukoon Waali Feeling ❤️</button>
+              <button onClick={() => { setPath("nature"); setStep("quiz2"); }} className="py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-purple-500/40 to-indigo-500/40 border border-white/20 text-white rounded-2xl sm:rounded-2xl md:rounded-3xl hover:scale-105 active:scale-95 transition-all text-base sm:text-lg font-bold shadow-lg shadow-black/20">Naseeb aur Hum ✨</button>
+              <button onClick={() => { setPath("vibe"); setStep("quiz2"); }} className="py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-blue-500/40 to-cyan-500/40 border border-white/20 text-white rounded-2xl sm:rounded-2xl md:rounded-3xl hover:scale-105 active:scale-95 transition-all text-base sm:text-lg font-bold shadow-lg shadow-black/20">Hamari Deep Baatein 🥺</button>
             </div>
           </motion.div>
         )}
