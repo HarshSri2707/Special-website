@@ -469,26 +469,75 @@ export default function RoseDay() {
             transition={{ type: "spring", duration: 0.8 }}
             className="z-10 bg-white/[0.03] backdrop-blur-2xl border border-white/10 p-6 md:p-12 lg:p-16 rounded-3xl md:rounded-[4rem] text-center max-w-2xl w-full mx-4 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
           >
-            {/* Final Rose */}
+            {/* Video/GIF Background in Card */}
             <div className="relative inline-block mb-8 md:mb-12">
+              {/* Glow effect behind video */}
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-br from-rose-500 to-pink-600 blur-[50px] opacity-40"
+                className="absolute inset-0 bg-gradient-to-br from-rose-500 to-pink-600 blur-[50px] opacity-40 rounded-full"
                 animate={{ 
                   scale: [1, 1.2, 1],
                   opacity: [0.4, 0.6, 0.4]
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               />
+              
+              {/* Video Container */}
               <motion.div
-                className="text-[8rem] md:text-[10rem] relative z-10"
+                className="relative z-10 w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-rose-400/30 shadow-2xl shadow-rose-900/50"
+                initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ 
-                  rotate: [0, 10, -10, 0],
-                  scale: [1, 1.1, 1]
+                  scale: 1, 
+                  opacity: 1,
+                  rotate: [0, 2, -2, 0]
                 }}
-                transition={{ duration: 4, repeat: Infinity }}
+                transition={{ 
+                  scale: { duration: 0.8 },
+                  rotate: { duration: 4, repeat: Infinity }
+                }}
               >
-                🌹
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/rose-animation.mp4" type="video/mp4" />
+                  {/* Fallback to emoji if video doesn't load */}
+                  <div className="w-full h-full flex items-center justify-center text-8xl">
+                    🌹
+                  </div>
+                </video>
+                
+                {/* Overlay gradient for better text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
               </motion.div>
+
+              {/* Floating hearts around video */}
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute text-2xl md:text-3xl"
+                  style={{
+                    top: "50%",
+                    left: "50%",
+                  }}
+                  animate={{
+                    x: [0, Math.cos(i * 60 * Math.PI / 180) * 120],
+                    y: [0, Math.sin(i * 60 * Math.PI / 180) * 120],
+                    opacity: [0, 1, 0],
+                    scale: [0, 1, 0]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: i * 0.5,
+                    ease: "easeOut"
+                  }}
+                >
+                  ❤️
+                </motion.div>
+              ))}
             </div>
 
             {/* Message */}
