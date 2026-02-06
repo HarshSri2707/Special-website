@@ -216,371 +216,457 @@
 // }
 
 
-import { useState } from "react";
+// import { useState } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import confetti from "canvas-confetti";
+
+// // --- Beautiful Grow Animation Stages with Icons & Images ---
+// const STAGES = [
+//   { 
+//     id: 0, 
+//     icon: "🌱",
+//     label: "Ek Nanha Sa Sapna...",
+//     desc: "Jaise beej zameen mein chhupa ho"
+//   },
+//   { 
+//     id: 1, 
+//     icon: "🌿",
+//     label: "Dheere Dheere Badhta Jaaye...",
+//     desc: "Kuch pyaara sa ugne laga hai"
+//   },
+//   { 
+//     id: 2, 
+//     icon: "🥀",
+//     label: "Kaliyon Ka Intezaar...",
+//     desc: "Ab khilne mein zyada waqt nahi"
+//   },
+//   { 
+//     id: 3, 
+//     icon: "🌹",
+//     label: "Khil Gaya Mera Pyaar",
+//     desc: "Tumhare liye, sirf tumhare liye"
+//   }
+// ];
+
+// const BackgroundEffect = () => (
+//   <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#1a0308] via-[#2d0510] to-[#0a0103]">
+//     {/* Animated Gradient Orbs */}
+//     <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-rose-600/10 rounded-full blur-[120px] animate-pulse" />
+//     <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-[120px] animate-pulse delay-700" />
+    
+//     {/* Floating Rose Petals */}
+//     {[...Array(15)].map((_, i) => (
+//       <motion.div
+//         key={i}
+//         initial={{ 
+//           y: -100, 
+//           x: `${Math.random() * 100}vw`, 
+//           rotate: Math.random() * 360,
+//           opacity: 0 
+//         }}
+//         animate={{ 
+//           y: "110vh", 
+//           x: `${Math.random() * 100}vw`,
+//           rotate: Math.random() * 720,
+//           opacity: [0, 0.3, 0]
+//         }}
+//         transition={{ 
+//           duration: 15 + Math.random() * 10, 
+//           repeat: Infinity, 
+//           ease: "linear",
+//           delay: Math.random() * 5
+//         }}
+//         className="absolute text-4xl md:text-5xl blur-[1px]"
+//       >
+//         🌹
+//       </motion.div>
+//     ))}
+
+//     {/* Sparkle Effect */}
+//     {[...Array(30)].map((_, i) => (
+//       <motion.div
+//         key={`spark-${i}`}
+//         animate={{ 
+//           opacity: [0, 1, 0],
+//           scale: [0, 1, 0]
+//         }}
+//         transition={{ 
+//           duration: 2 + Math.random() * 2, 
+//           repeat: Infinity, 
+//           delay: Math.random() * 5 
+//         }}
+//         className="absolute w-1 h-1 bg-rose-200 rounded-full"
+//         style={{ 
+//           top: `${Math.random() * 100}%`, 
+//           left: `${Math.random() * 100}%` 
+//         }}
+//       />
+//     ))}
+//   </div>
+// );
+
+// const GrowthStage = ({ stage, onClick }) => {
+//   return (
+//     <motion.div
+//       onClick={onClick}
+//       whileTap={{ scale: 0.95 }}
+//       className="relative cursor-pointer group"
+//       initial={{ scale: 0.8, opacity: 0 }}
+//       animate={{ scale: 1, opacity: 1 }}
+//       transition={{ type: "spring", duration: 0.8 }}
+//     >
+//       {/* Glow Effect */}
+//       <motion.div 
+//         className="absolute -inset-8 bg-gradient-to-br from-rose-500/20 to-pink-500/20 rounded-full blur-[60px] group-hover:blur-[80px]"
+//         animate={{ 
+//           scale: [1, 1.1, 1],
+//           opacity: [0.5, 0.7, 0.5]
+//         }}
+//         transition={{ duration: 3, repeat: Infinity }}
+//       />
+
+//       {/* Icon Container */}
+//       <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 flex items-center justify-center">
+//         <motion.div
+//           className="text-[12rem] md:text-[14rem] lg:text-[16rem] leading-none"
+//           animate={{ 
+//             rotate: [0, 5, -5, 0],
+//             scale: [1, 1.05, 1]
+//           }}
+//           transition={{ duration: 4, repeat: Infinity }}
+//         >
+//           {STAGES[stage].icon}
+//         </motion.div>
+
+//         {/* Particle Ring */}
+//         {stage === 3 && (
+//           <motion.div
+//             className="absolute inset-0"
+//             animate={{ rotate: 360 }}
+//             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+//           >
+//             {[...Array(8)].map((_, i) => (
+//               <motion.div
+//                 key={i}
+//                 className="absolute w-3 h-3 bg-rose-400 rounded-full"
+//                 style={{
+//                   top: "50%",
+//                   left: "50%",
+//                   transform: `rotate(${i * 45}deg) translateY(-140px)`
+//                 }}
+//                 animate={{ opacity: [0.3, 1, 0.3] }}
+//                 transition={{ 
+//                   duration: 2, 
+//                   repeat: Infinity, 
+//                   delay: i * 0.2 
+//                 }}
+//               />
+//             ))}
+//           </motion.div>
+//         )}
+//       </div>
+//     </motion.div>
+//   );
+// };
+
+// export default function RoseDay() {
+//   const [stage, setStage] = useState(0);
+//   const [isRevealed, setIsRevealed] = useState(false);
+
+//   const handleNext = () => {
+//     if (stage < STAGES.length - 1) {
+//       setStage(prev => prev + 1);
+//       confetti({
+//         particleCount: 30,
+//         spread: 60,
+//         origin: { y: 0.7 },
+//         colors: ["#ff0000", "#ff69b4", "#ffd700"]
+//       });
+//     } else {
+//       setIsRevealed(true);
+//       confetti({
+//         particleCount: 200,
+//         spread: 120,
+//         origin: { y: 0.5 },
+//         colors: ["#ff0000", "#ffffff", "#ffd700", "#ff69b4"],
+//         ticks: 300
+//       });
+//     }
+//   };
+
+//   return (
+//     <div className="relative min-h-screen w-full flex items-center justify-center p-4 overflow-hidden font-sans">
+//       <BackgroundEffect />
+
+//       <AnimatePresence mode="wait">
+//         {!isRevealed ? (
+//           <motion.div 
+//             key="nurture"
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             exit={{ opacity: 0, scale: 1.1 }}
+//             transition={{ duration: 0.6 }}
+//             className="z-10 flex flex-col items-center max-w-lg w-full px-4"
+//           >
+//             {/* Header */}
+//             <div className="mb-8 md:mb-12 text-center">
+//               <motion.h1 
+//                 className="text-rose-200/50 uppercase tracking-[0.3em] md:tracking-[0.5em] text-[10px] md:text-xs font-bold mb-3"
+//                 animate={{ opacity: [0.5, 1, 0.5] }}
+//                 transition={{ duration: 3, repeat: Infinity }}
+//               >
+//                 Rose Day 2026
+//               </motion.h1>
+//               <p className="text-rose-100/70 text-sm md:text-base italic font-light">
+//                 Tap karke dekho kya khilta hai 🌹
+//               </p>
+//             </div>
+
+//             {/* Growth Stage Display */}
+//             <GrowthStage stage={stage} onClick={handleNext} />
+
+//             {/* Stage Info */}
+//             <div className="mt-8 md:mt-12 w-full max-w-sm text-center space-y-4">
+//               <motion.p 
+//                 key={`label-${stage}`}
+//                 initial={{ opacity: 0, y: 10 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 className="text-rose-50 font-semibold text-lg md:text-xl tracking-wide"
+//               >
+//                 {STAGES[stage].label}
+//               </motion.p>
+//               <motion.p
+//                 key={`desc-${stage}`}
+//                 initial={{ opacity: 0 }}
+//                 animate={{ opacity: 1 }}
+//                 transition={{ delay: 0.2 }}
+//                 className="text-rose-200/60 text-xs md:text-sm italic"
+//               >
+//                 {STAGES[stage].desc}
+//               </motion.p>
+
+//               {/* Progress Bar */}
+//               <div className="relative pt-2">
+//                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden backdrop-blur-sm">
+//                   <motion.div 
+//                     className="h-full bg-gradient-to-r from-rose-600 via-rose-500 to-pink-400 rounded-full shadow-lg shadow-rose-500/50"
+//                     initial={{ width: 0 }}
+//                     animate={{ width: `${((stage + 1) / STAGES.length) * 100}%` }}
+//                     transition={{ duration: 0.8, ease: "easeOut" }}
+//                   />
+//                 </div>
+//                 <p className="text-rose-300/40 text-[10px] mt-2 font-medium">
+//                   {stage + 1} / {STAGES.length}
+//                 </p>
+//               </div>
+//             </div>
+//           </motion.div>
+//         ) : (
+//           <motion.div 
+//             key="message"
+//             initial={{ scale: 0.9, opacity: 0 }}
+//             animate={{ scale: 1, opacity: 1 }}
+//             transition={{ type: "spring", duration: 0.8 }}
+//             className="z-10 bg-white/[0.03] backdrop-blur-2xl border border-white/10 p-6 md:p-12 lg:p-16 rounded-3xl md:rounded-[4rem] text-center max-w-2xl w-full mx-4 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+//           >
+//             {/* Video/GIF Background in Card */}
+//             <div className="relative inline-block mb-8 md:mb-12">
+//               {/* Glow effect behind video */}
+//               <motion.div 
+//                 className="absolute inset-0 bg-gradient-to-br from-rose-500 to-pink-600 blur-[50px] opacity-40 rounded-full"
+//                 animate={{ 
+//                   scale: [1, 1.2, 1],
+//                   opacity: [0.4, 0.6, 0.4]
+//                 }}
+//                 transition={{ duration: 3, repeat: Infinity }}
+//               />
+              
+//               {/* Video Container */}
+//               <motion.div
+//                 className="relative z-10 w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-rose-400/30 shadow-2xl shadow-rose-900/50"
+//                 initial={{ scale: 0.8, opacity: 0 }}
+//                 animate={{ 
+//                   scale: 1, 
+//                   opacity: 1,
+//                   rotate: [0, 2, -2, 0]
+//                 }}
+//                 transition={{ 
+//                   scale: { duration: 0.8 },
+//                   rotate: { duration: 4, repeat: Infinity }
+//                 }}
+//               >
+//                 <video
+//                   autoPlay
+//                   loop
+//                   muted
+//                   playsInline
+//                   className="w-full h-full object-cover"
+//                 >
+//                   <source src="/rose-animation.mp4" type="video/mp4" />
+//                   {/* Fallback to emoji if video doesn't load */}
+//                   <div className="w-full h-full flex items-center justify-center text-8xl">
+//                     🌹
+//                   </div>
+//                 </video>
+                
+//                 {/* Overlay gradient for better text readability */}
+//                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+//               </motion.div>
+
+//               {/* Floating hearts around video */}
+//               {[...Array(6)].map((_, i) => (
+//                 <motion.div
+//                   key={i}
+//                   className="absolute text-2xl md:text-3xl"
+//                   style={{
+//                     top: "50%",
+//                     left: "50%",
+//                   }}
+//                   animate={{
+//                     x: [0, Math.cos(i * 60 * Math.PI / 180) * 120],
+//                     y: [0, Math.sin(i * 60 * Math.PI / 180) * 120],
+//                     opacity: [0, 1, 0],
+//                     scale: [0, 1, 0]
+//                   }}
+//                   transition={{
+//                     duration: 3,
+//                     repeat: Infinity,
+//                     delay: i * 0.5,
+//                     ease: "easeOut"
+//                   }}
+//                 >
+//                   ❤️
+//                 </motion.div>
+//               ))}
+//             </div>
+
+//             {/* Message */}
+//             <motion.h2 
+//               className="text-3xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-200 via-pink-200 to-rose-300 mb-4 md:mb-6 tracking-tight"
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ delay: 0.3 }}
+//             >
+//               Happy Rose Day! 🌹
+//             </motion.h2>
+            
+//             <motion.div
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ delay: 0.5 }}
+//               className="space-y-4 md:space-y-6 mb-8 md:mb-12"
+//             >
+//               <p className="text-rose-100/90 text-base md:text-lg lg:text-xl font-serif italic leading-relaxed px-2 md:px-4">
+//                 "Jaise gulaab ki khushboo hawa mein ghul jaati hai, waise hi tum meri zindagi mein ghul gayi ho."
+//               </p>
+              
+//               <p className="text-rose-200/80 text-sm md:text-base lg:text-lg leading-relaxed px-2 md:px-4">
+//                 Ye rose sirf ek phool nahi hai — ye meri har woh baat hai jo main kabhi keh nahi paaya. 
+//                 Tumhari muskaan se zyada khoobsurat kuch nahi, tumhari baaton se zyada meetha kuch nahi.
+//               </p>
+
+//               <p className="text-rose-300/70 text-xs md:text-sm italic px-2 md:px-4">
+//                 Tum meri duniya ki sabse haseen mehak ho. ❤️
+//               </p>
+//             </motion.div>
+
+//             {/* Button */}
+//             <motion.button
+//               whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(244, 63, 94, 0.5)" }}
+//               whileTap={{ scale: 0.95 }}
+//               initial={{ opacity: 0 }}
+//               animate={{ opacity: 1 }}
+//               transition={{ delay: 0.8 }}
+//               className="bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-pink-500 text-white px-8 md:px-12 py-3 md:py-4 rounded-full font-bold text-xs md:text-sm tracking-widest uppercase shadow-lg shadow-rose-900/50 transition-all border border-rose-400/30"
+//             >
+//               Forever Yours 💕
+//             </motion.button>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </div>
+//   );
+// }
+
+import { useState, useEffect } from "react"; // Added useEffect
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
-
-// --- Beautiful Grow Animation Stages with Icons & Images ---
-const STAGES = [
-  { 
-    id: 0, 
-    icon: "🌱",
-    label: "Ek Nanha Sa Sapna...",
-    desc: "Jaise beej zameen mein chhupa ho"
-  },
-  { 
-    id: 1, 
-    icon: "🌿",
-    label: "Dheere Dheere Badhta Jaaye...",
-    desc: "Kuch pyaara sa ugne laga hai"
-  },
-  { 
-    id: 2, 
-    icon: "🥀",
-    label: "Kaliyon Ka Intezaar...",
-    desc: "Ab khilne mein zyada waqt nahi"
-  },
-  { 
-    id: 3, 
-    icon: "🌹",
-    label: "Khil Gaya Mera Pyaar",
-    desc: "Tumhare liye, sirf tumhare liye"
-  }
-];
-
-const BackgroundEffect = () => (
-  <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#1a0308] via-[#2d0510] to-[#0a0103]">
-    {/* Animated Gradient Orbs */}
-    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-rose-600/10 rounded-full blur-[120px] animate-pulse" />
-    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-[120px] animate-pulse delay-700" />
-    
-    {/* Floating Rose Petals */}
-    {[...Array(15)].map((_, i) => (
-      <motion.div
-        key={i}
-        initial={{ 
-          y: -100, 
-          x: `${Math.random() * 100}vw`, 
-          rotate: Math.random() * 360,
-          opacity: 0 
-        }}
-        animate={{ 
-          y: "110vh", 
-          x: `${Math.random() * 100}vw`,
-          rotate: Math.random() * 720,
-          opacity: [0, 0.3, 0]
-        }}
-        transition={{ 
-          duration: 15 + Math.random() * 10, 
-          repeat: Infinity, 
-          ease: "linear",
-          delay: Math.random() * 5
-        }}
-        className="absolute text-4xl md:text-5xl blur-[1px]"
-      >
-        🌹
-      </motion.div>
-    ))}
-
-    {/* Sparkle Effect */}
-    {[...Array(30)].map((_, i) => (
-      <motion.div
-        key={`spark-${i}`}
-        animate={{ 
-          opacity: [0, 1, 0],
-          scale: [0, 1, 0]
-        }}
-        transition={{ 
-          duration: 2 + Math.random() * 2, 
-          repeat: Infinity, 
-          delay: Math.random() * 5 
-        }}
-        className="absolute w-1 h-1 bg-rose-200 rounded-full"
-        style={{ 
-          top: `${Math.random() * 100}%`, 
-          left: `${Math.random() * 100}%` 
-        }}
-      />
-    ))}
-  </div>
-);
-
-const GrowthStage = ({ stage, onClick }) => {
-  return (
-    <motion.div
-      onClick={onClick}
-      whileTap={{ scale: 0.95 }}
-      className="relative cursor-pointer group"
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ type: "spring", duration: 0.8 }}
-    >
-      {/* Glow Effect */}
-      <motion.div 
-        className="absolute -inset-8 bg-gradient-to-br from-rose-500/20 to-pink-500/20 rounded-full blur-[60px] group-hover:blur-[80px]"
-        animate={{ 
-          scale: [1, 1.1, 1],
-          opacity: [0.5, 0.7, 0.5]
-        }}
-        transition={{ duration: 3, repeat: Infinity }}
-      />
-
-      {/* Icon Container */}
-      <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 flex items-center justify-center">
-        <motion.div
-          className="text-[12rem] md:text-[14rem] lg:text-[16rem] leading-none"
-          animate={{ 
-            rotate: [0, 5, -5, 0],
-            scale: [1, 1.05, 1]
-          }}
-          transition={{ duration: 4, repeat: Infinity }}
-        >
-          {STAGES[stage].icon}
-        </motion.div>
-
-        {/* Particle Ring */}
-        {stage === 3 && (
-          <motion.div
-            className="absolute inset-0"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          >
-            {[...Array(8)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-3 h-3 bg-rose-400 rounded-full"
-                style={{
-                  top: "50%",
-                  left: "50%",
-                  transform: `rotate(${i * 45}deg) translateY(-140px)`
-                }}
-                animate={{ opacity: [0.3, 1, 0.3] }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity, 
-                  delay: i * 0.2 
-                }}
-              />
-            ))}
-          </motion.div>
-        )}
-      </div>
-    </motion.div>
-  );
-};
 
 export default function RoseDay() {
   const [stage, setStage] = useState(0);
   const [isRevealed, setIsRevealed] = useState(false);
+  const [userName, setUserName] = useState("Someone Special");
+
+  // --- Magic Logic: Link se naam nikalne ke liye ---
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    if (name) {
+      // Naam ka pehla letter capital karne ke liye
+      setUserName(name.charAt(0).toUpperCase() + name.slice(1));
+    }
+  }, []);
+
+  const STAGES = [
+    { id: 0, icon: "🌱", label: "Ek Nanha Sa Sapna...", desc: "Jaise beej zameen mein chhupa ho" },
+    { id: 1, icon: "🌿", label: "Dheere Dheere Badhta Jaaye...", desc: "Kuch pyaara sa ugne laga hai" },
+    { id: 2, icon: "🥀", label: "Kaliyon Ka Intezaar...", desc: "Ab khilne mein zyada waqt nahi" },
+    { id: 3, icon: "🌹", label: `Khil Gaya Mera Pyaar`, desc: `Sirf tumhare liye, ${userName}` }
+  ];
 
   const handleNext = () => {
     if (stage < STAGES.length - 1) {
       setStage(prev => prev + 1);
-      confetti({
-        particleCount: 30,
-        spread: 60,
-        origin: { y: 0.7 },
-        colors: ["#ff0000", "#ff69b4", "#ffd700"]
-      });
+      confetti({ particleCount: 30, spread: 60, origin: { y: 0.7 }, colors: ["#ff0000", "#ff69b4", "#ffd700"] });
     } else {
       setIsRevealed(true);
-      confetti({
-        particleCount: 200,
-        spread: 120,
-        origin: { y: 0.5 },
-        colors: ["#ff0000", "#ffffff", "#ffd700", "#ff69b4"],
-        ticks: 300
-      });
+      confetti({ particleCount: 200, spread: 120, origin: { y: 0.5 }, colors: ["#ff0000", "#ffffff", "#ffd700", "#ff69b4"], ticks: 300 });
     }
   };
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center p-4 overflow-hidden font-sans">
-      <BackgroundEffect />
+    <div className="relative min-h-screen w-full flex items-center justify-center p-4 overflow-hidden font-sans bg-[#1a0308]">
+      {/* Background Effect Logic - Keeping it same as your original */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#1a0308] via-[#2d0510] to-[#0a0103]">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-rose-600/10 rounded-full blur-[120px] animate-pulse" />
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{ y: -100, x: `${Math.random() * 100}vw`, opacity: 0 }}
+            animate={{ y: "110vh", opacity: [0, 0.3, 0] }}
+            transition={{ duration: 15 + Math.random() * 10, repeat: Infinity, ease: "linear" }}
+            className="absolute text-4xl"
+          >🌹</motion.div>
+        ))}
+      </div>
 
       <AnimatePresence mode="wait">
         {!isRevealed ? (
-          <motion.div 
-            key="nurture"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 1.1 }}
-            transition={{ duration: 0.6 }}
-            className="z-10 flex flex-col items-center max-w-lg w-full px-4"
-          >
-            {/* Header */}
-            <div className="mb-8 md:mb-12 text-center">
-              <motion.h1 
-                className="text-rose-200/50 uppercase tracking-[0.3em] md:tracking-[0.5em] text-[10px] md:text-xs font-bold mb-3"
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                Rose Day 2026
-              </motion.h1>
-              <p className="text-rose-100/70 text-sm md:text-base italic font-light">
-                Tap karke dekho kya khilta hai 🌹
-              </p>
-            </div>
+          <motion.div key="nurture" className="z-10 flex flex-col items-center max-w-lg w-full px-4 text-center">
+            <h1 className="text-rose-200/50 uppercase tracking-[0.5em] text-[10px] mb-3">Rose Day 2026</h1>
+            <p className="text-rose-100/70 text-sm mb-8 italic">Hey {userName}, tap karke dekho kya khilta hai 🌹</p>
+            
+            <motion.div onClick={handleNext} whileTap={{ scale: 0.9 }} className="text-[12rem] cursor-pointer drop-shadow-2xl">
+              {STAGES[stage].icon}
+            </motion.div>
 
-            {/* Growth Stage Display */}
-            <GrowthStage stage={stage} onClick={handleNext} />
-
-            {/* Stage Info */}
-            <div className="mt-8 md:mt-12 w-full max-w-sm text-center space-y-4">
-              <motion.p 
-                key={`label-${stage}`}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-rose-50 font-semibold text-lg md:text-xl tracking-wide"
-              >
-                {STAGES[stage].label}
-              </motion.p>
-              <motion.p
-                key={`desc-${stage}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="text-rose-200/60 text-xs md:text-sm italic"
-              >
-                {STAGES[stage].desc}
-              </motion.p>
-
-              {/* Progress Bar */}
-              <div className="relative pt-2">
-                <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden backdrop-blur-sm">
-                  <motion.div 
-                    className="h-full bg-gradient-to-r from-rose-600 via-rose-500 to-pink-400 rounded-full shadow-lg shadow-rose-500/50"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${((stage + 1) / STAGES.length) * 100}%` }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                  />
-                </div>
-                <p className="text-rose-300/40 text-[10px] mt-2 font-medium">
-                  {stage + 1} / {STAGES.length}
-                </p>
+            <div className="mt-12 space-y-4">
+              <p className="text-rose-50 font-semibold text-xl">{STAGES[stage].label}</p>
+              <div className="h-1.5 w-48 bg-white/5 rounded-full mx-auto overflow-hidden">
+                <motion.div className="h-full bg-rose-500" animate={{ width: `${((stage + 1) / STAGES.length) * 100}%` }} />
               </div>
             </div>
           </motion.div>
         ) : (
-          <motion.div 
-            key="message"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", duration: 0.8 }}
-            className="z-10 bg-white/[0.03] backdrop-blur-2xl border border-white/10 p-6 md:p-12 lg:p-16 rounded-3xl md:rounded-[4rem] text-center max-w-2xl w-full mx-4 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
-          >
-            {/* Video/GIF Background in Card */}
-            <div className="relative inline-block mb-8 md:mb-12">
-              {/* Glow effect behind video */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-br from-rose-500 to-pink-600 blur-[50px] opacity-40 rounded-full"
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  opacity: [0.4, 0.6, 0.4]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
-              
-              {/* Video Container */}
-              <motion.div
-                className="relative z-10 w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-rose-400/30 shadow-2xl shadow-rose-900/50"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ 
-                  scale: 1, 
-                  opacity: 1,
-                  rotate: [0, 2, -2, 0]
-                }}
-                transition={{ 
-                  scale: { duration: 0.8 },
-                  rotate: { duration: 4, repeat: Infinity }
-                }}
-              >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                >
-                  <source src="/rose-animation.mp4" type="video/mp4" />
-                  {/* Fallback to emoji if video doesn't load */}
-                  <div className="w-full h-full flex items-center justify-center text-8xl">
-                    🌹
-                  </div>
-                </video>
-                
-                {/* Overlay gradient for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-              </motion.div>
-
-              {/* Floating hearts around video */}
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute text-2xl md:text-3xl"
-                  style={{
-                    top: "50%",
-                    left: "50%",
-                  }}
-                  animate={{
-                    x: [0, Math.cos(i * 60 * Math.PI / 180) * 120],
-                    y: [0, Math.sin(i * 60 * Math.PI / 180) * 120],
-                    opacity: [0, 1, 0],
-                    scale: [0, 1, 0]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: i * 0.5,
-                    ease: "easeOut"
-                  }}
-                >
-                  ❤️
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Message */}
-            <motion.h2 
-              className="text-3xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-200 via-pink-200 to-rose-300 mb-4 md:mb-6 tracking-tight"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              Happy Rose Day! 🌹
-            </motion.h2>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="space-y-4 md:space-y-6 mb-8 md:mb-12"
-            >
-              <p className="text-rose-100/90 text-base md:text-lg lg:text-xl font-serif italic leading-relaxed px-2 md:px-4">
-                "Jaise gulaab ki khushboo hawa mein ghul jaati hai, waise hi tum meri zindagi mein ghul gayi ho."
-              </p>
-              
-              <p className="text-rose-200/80 text-sm md:text-base lg:text-lg leading-relaxed px-2 md:px-4">
-                Ye rose sirf ek phool nahi hai — ye meri har woh baat hai jo main kabhi keh nahi paaya. 
-                Tumhari muskaan se zyada khoobsurat kuch nahi, tumhari baaton se zyada meetha kuch nahi.
-              </p>
-
-              <p className="text-rose-300/70 text-xs md:text-sm italic px-2 md:px-4">
-                Tum meri duniya ki sabse haseen mehak ho. ❤️
-              </p>
-            </motion.div>
-
-            {/* Button */}
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(244, 63, 94, 0.5)" }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-pink-500 text-white px-8 md:px-12 py-3 md:py-4 rounded-full font-bold text-xs md:text-sm tracking-widest uppercase shadow-lg shadow-rose-900/50 transition-all border border-rose-400/30"
-            >
-              Forever Yours 💕
-            </motion.button>
+          <motion.div key="message" className="z-10 bg-white/[0.03] backdrop-blur-2xl border border-white/10 p-8 md:p-16 rounded-[3rem] text-center max-w-2xl w-full mx-4 shadow-2xl">
+            <div className="text-8xl mb-8">🌹</div>
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-6 italic">Happy Rose Day, {userName}!</h2>
+            <p className="text-rose-100/90 text-lg md:text-xl font-serif italic mb-10 leading-relaxed">
+              "Jaise gulaab ki khushboo hawa mein ghul jaati hai, waise hi tum meri zindagi mein ghul gayi ho, {userName}. Tumhare bina ye jahan adhura hai."
+            </p>
+            <button className="bg-rose-600 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-lg">
+              Forever Yours, {userName} ❤️
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
