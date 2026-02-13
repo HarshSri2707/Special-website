@@ -194,7 +194,7 @@ const content = {
               <p className="text-white font-black text-[0.5rem] sm:text-xs md:text-sm uppercase text-center leading-tight px-1 sm:px-2">Officially<br/>My<br/>Valentine ❤️</p>
             </motion.div>
             <span className="text-5xl sm:text-6xl md:text-7xl block mb-5 sm:mb-6 drop-shadow-lg">🥳</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-5 sm:mb-6 italic tracking-tighter">Love Mission: Won!</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-5 sm:mb-6 italic tracking-tighter">Happy Valentine's Day My Love!</h2>
             <p className="text-sm sm:text-base md:text-lg text-rose-50 text-center mb-6 sm:mb-7 md:mb-8 font-serif italic px-3 sm:px-4 leading-relaxed bg-black/10 py-3 sm:py-4 md:py-5 rounded-2xl sm:rounded-2xl md:rounded-3xl border border-white/10">
               "{content[path].line}"
             </p>
